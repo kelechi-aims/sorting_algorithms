@@ -3,17 +3,15 @@
 /**
  * merge - Merge two sorted subarrays into one sorted array
  * @temp: The temp array containing two subarrays to be merged
- * @buff: Array for sorted integers 
+ * @buff: Array for sorted integers
  * @left: the start of the left subarray
  * @mid: the end of the left subarray
  * @right: the end of the right subarray
- * @size: The size of the original array
  */
 void merge(int *temp, int *buff, size_t left, size_t mid, size_t right)
 {
 	size_t i, j, k = 0;
 
-	
 	printf("Merging...\n[left]:  ");
 	print_array(temp + left, mid - left);
 	printf("[right]: ");
@@ -41,7 +39,8 @@ void merge(int *temp, int *buff, size_t left, size_t mid, size_t right)
 void merge_sort_recursive(int *temp, int *buff, size_t left, size_t right)
 {
 	size_t mid;
-	if (left - right > 1)
+
+	if (right - left > 1)
 	{
 		mid = left + (right - left) / 2;
 		merge_sort_recursive(temp, buff, left, mid);
