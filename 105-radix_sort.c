@@ -17,7 +17,7 @@ int get_max_value(int *array, size_t size)
 		if (array[i] > max_val)
 			max_val = array[i];
 	}
-	return max_val;
+	return (max_val);
 }
 
 /**
@@ -29,16 +29,12 @@ int get_max_value(int *array, size_t size)
  */
 void countSort(int *array, size_t size, int exp)
 {
-	int *output_array, *counting_array;
-	int i;
+	int counting_array[10] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	int *output_array, i;
 
-	counting_array = malloc(10 * sizeof(int));
-	if (counting_array == NULL)
-		return;
 	output_array = malloc(size * sizeof(int));
 	if (output_array == NULL)
 	{
-		free(counting_array);
 		return;
 	}
 	for (i = 0; i < (int)size; i++)
@@ -52,7 +48,6 @@ void countSort(int *array, size_t size, int exp)
 	}
 	for (i = 0; i < (int)size; i++)
 		array[i] = output_array[i];
-	free(counting_array);
 	free(output_array);
 }
 
